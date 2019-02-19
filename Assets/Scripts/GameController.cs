@@ -71,4 +71,14 @@ public class GameController : MonoBehaviour
     {
         playing = false;
     }
+
+    public void pauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void resumeGame()
+    {
+        Time.timeScale = 1;
+    }
 }
