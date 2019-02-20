@@ -33,7 +33,7 @@ public class GameController : MonoBehaviour
         if (Time.time > lastSpawn + spawnTime)
         {
             lastSpawn = Time.time;
-            StartCoroutine(SpawnWave());
+            //StartCoroutine(SpawnWave());
         }
         UpdateScore();
         if (!playing)

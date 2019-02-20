@@ -13,32 +13,10 @@ public class PlayerController : MonoBehaviour
     //
     // Physics
     //
-    public float speedModifier; 
-    public Vector2 rudderModifier; // (port, starboard)
-    public Vector3 sailModifier; // (y angle, extension, contraction)
-    public Vector2 anchorModifier; // (raise, lower)
+    public float rotationModifier; 
+    public Vector2 thrustModifier; // (power up, power down)
 
     public float shipSpeed;
-    public Vector2 shipVelocity; // (x,z)
-    public Vector2 shipAcceleration; // (x,z)
-
-    public float shipRotationVelocity;
-    public float shipRotationAcceleration;
-
-    public float rudderAngle; // 0 = native
-    public float rudderSpeed;
-    public Vector2 rudderLimits; // (port, starboard)
-    
-    public Vector2 sailsPosition; // (y angle,extension)
-    public Vector3 sailsVelocity; // (y angle, extension)
-    public Vector3 sailsAcceleration; // (y angle, extension)
-
-    public float anchorPosition;
-    public float anchorVelocity;
-    public float anchorAcceleration;
-
-    
-
 
     public float tiltModifier;
     
@@ -101,20 +79,18 @@ public class PlayerController : MonoBehaviour
     // FixedUpdate is called before physics operations
     void FixedUpdate()
     {
-        float userSteer = Input.GetAxis("Horizontal");
-        float userSails = Input.GetAxis("Vertical");
+        float userRudder = Input.GetAxis("Horizontal");
+        float userThrust = Input.GetAxis("Vertical");
 
+        if (userThrust > 0)
+        {
+            rb.AddRelativeForce(new Vector3(0, 0, (thrustModifier[0] * userThrust)));
+        }
+        else
+        {
+            rb.AddRelativeForce(new Vector3(0, 0, (thrustModifier[1] * userThrust)));
+        }
 
-        shipVelocity = new Vector2(
-            shipSpeed * speedModifier * Mathf.Sin(rb.rotation.y),
-            shipSpeed * speedModifier * Mathf.Cos(rb.rotation.y)
-           );
-
-        rb.position = new Vector3(
-            Mathf.Clamp(rb.position.x, boundary.xMin, boundary.xMax), 
-            0.0f, 
-            Mathf.Clamp(rb.position.z, boundary.zMin, boundary.zMax)
-        );
-
+        rb.AddTorque(new Vector3(0,rotationModifier * rb.velocity.magnitude * userRudder, 0));
     }
 }
