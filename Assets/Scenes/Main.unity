@@ -1148,7 +1148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationModifier: 10
-  thrustModifier: {x: 5, y: 2}
+  thrustModifier: {x: 0.0012, y: 2}
   shipSpeed: 0
   tiltModifier: 100
   shot: {fileID: 5812275666394443856, guid: 3fbb7f51f13e6364d9091b933a60020b, type: 3}

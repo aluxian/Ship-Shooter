@@ -33,8 +33,8 @@ public class PlayerController : MonoBehaviour
     // Components
     //
 
-    private Rigidbody shipRigidBody;
-    private AudioSource shootAudioSource;
+    private Rigidbody rb;
+    private AudioSource auShot;
 
     //
     // World
@@ -46,8 +46,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        shipRigidBody = GetComponent<Rigidbody>();
-        shootAudioSource = GetComponent<AudioSource>();
+        rb = GetComponent<Rigidbody>();
+        auShot = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
             for (int x = 0; x < shotSpawnsPort.Length; x++)
             {
                 Instantiate(shot, shotSpawnsPort[x].position, shotSpawnsPort[x].rotation);
-                shootAudioSource.Play();
+                auShot.Play();
             }
         }
 
@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
             for (int x = 0; x < shotSpawnsPort.Length; x++)
             {
                 Instantiate(shot, shotSpawnsStarboard[x].position, shotSpawnsStarboard[x].rotation);
-                shootAudioSource.Play();
+                auShot.Play();
             }
         }
     }
@@ -82,13 +82,14 @@ public class PlayerController : MonoBehaviour
 
         if (userThrust > 0)
         {
-            shipRigidBody.AddRelativeForce(new Vector3(0, 0, thrustModifier[0] * userThrust));
+            shipSpeed += userThrust * thrustModifier[0];
         }
         else
         {
-            shipRigidBody.AddRelativeForce(new Vector3(0, 0, thrustModifier[1] * userThrust));
+            shipSpeed += userThrust * thrustModifier[1];
         }
 
-        shipRigidBody.AddTorque(new Vector3(0, rotationModifier * shipRigidBody.velocity.magnitude * userRudder, 0));
+        rb.MoveRotation(rb.rotation * Quaternion.Euler(new Vector3(0, userRudder * rotationModifier * shipSpeed, 0)));
+        rb.MovePosition(rb.position + new Vector3(shipSpeed * thrustModifier[0] * Mathf.Sin(Mathf.Deg2Rad * rb.rotation.eulerAngles.y), 0, shipSpeed * thrustModifier[0] * Mathf.Cos(Mathf.Deg2Rad * rb.rotation.eulerAngles.y)));
     }
 }
