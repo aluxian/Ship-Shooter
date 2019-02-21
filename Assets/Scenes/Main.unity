@@ -249,6 +249,7 @@ MonoBehaviour:
   spawnWait: 0.5
   scoreText: {fileID: 1837819602}
   endText: {fileID: 1009795751}
+  wind: {fileID: 1165070841}
 --- !u!4 &608423574
 Transform:
   m_ObjectHideFlags: 0
@@ -756,6 +757,57 @@ Transform:
   m_Father: {fileID: 1407741155}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!1 &1165070840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1165070842}
+  - component: {fileID: 1165070841}
+  m_Layer: 0
+  m_Name: Wind
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1165070841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165070840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28456881cb173b64dae5fac4e1a6f250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windPower: 0
+  windMax: 30
+  windMin: 2
+  directionMin: 0
+  directionMax: 360
+  randomicityPower: 0.8
+  randomicityDirection: 1.5
+  direction: 0
+--- !u!4 &1165070842
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165070840}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1187235258
 GameObject:
   m_ObjectHideFlags: 0
@@ -1147,9 +1199,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d35f5765b3b52438c95bc4fe484532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationModifier: 10
-  thrustModifier: {x: 0.0012, y: 2}
+  rotationModifier: 0.25
+  sailModifier: {x: 5, y: 2}
+  thrustModifier: 0.08
+  sailAngle: 0
+  sailMin: 0
+  sailMax: 1
+  sailAngleMin: -20
+  sailAngleMax: 20
   shipSpeed: 0
+  maxSpeed: 0.2
+  sailPosition: 0
   tiltModifier: 100
   shot: {fileID: 5812275666394443856, guid: 3fbb7f51f13e6364d9091b933a60020b, type: 3}
   shotSpawnsPort:
@@ -1165,11 +1225,13 @@ MonoBehaviour:
   - {fileID: 1585762673}
   - {fileID: 1802249642}
   reloadTime: 2
+  dragCoefficient: 0.95
   boundary:
     xMin: 0
     xMax: 50
     zMin: 0
     zMax: 50
+  wind: {fileID: 1165070841}
 --- !u!136 &1592196078
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1194,9 +1256,9 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 15
+  m_AngularDrag: 0
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0

@@ -12,9 +12,19 @@ public class PlayerController : MonoBehaviour
     // Physics
     //
     public float rotationModifier;
-    public Vector2 thrustModifier; // (power up, power down)
+    public Vector2 sailModifier; // (sails down, sails up)
+    public float thrustModifier;
+    public float sailAngle;
+    public float sailMin;
+    public float sailMax;
+
+    public float sailAngleMin;
+    public float sailAngleMax;
 
     public float shipSpeed;
+    public float maxSpeed;
+
+    public float sailPosition;
 
     public float tiltModifier;
 
@@ -26,8 +36,12 @@ public class PlayerController : MonoBehaviour
     public Transform[] shotSpawnsStarboard;
     public float reloadTime;
 
+    public float dragCoefficient; // Multiplication performed with drag - smaller is more drag! Can only be in range 0-1
+    
     private float nextFirePort;
     private float nextFireStarboard;
+
+    private GameObject WindDirection;
 
     //
     // Components
@@ -42,6 +56,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     public Boundary boundary;
+
+    public WindController wind;
+
 
     // Start is called before the first frame update
     void Start()
@@ -78,18 +95,45 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         float userRudder = Input.GetAxis("Horizontal");
-        float userThrust = Input.GetAxis("Vertical");
+        float userSails = Input.GetAxis("Vertical");
 
-        if (userThrust > 0)
+        sailPosition += sailModifier[(int)userSails + 1] * userSails;
+
+        if(sailPosition > 1)
         {
-            shipSpeed += userThrust * thrustModifier[0];
+            sailPosition = sailMax;
         }
-        else
+        else if(sailPosition < sailMin)
         {
-            shipSpeed += userThrust * thrustModifier[1];
+            sailPosition = sailMin;
         }
+
+        if(sailAngle > sailAngleMax)
+        {
+            sailAngle = sailAngleMax;
+        }
+        else if(sailAngle < sailAngleMin)
+        {
+            sailAngle = sailAngleMin;
+        }
+        shipSpeed = shipSpeed * dragCoefficient;
+
+        float diff = ((Mathf.Deg2Rad * rb.rotation.eulerAngles.y) + sailAngle - wind.direction) % 360;
+        if(diff > 180)
+        {
+            diff -= 360;
+        }
+        else if(diff < -180)
+        {
+            diff += 360;
+        }
+
+        shipSpeed += Mathf.Abs(thrustModifier * sailPosition * Mathf.Cos(diff) * wind.windPower / wind.windMax);
+
+        
+        
 
         rb.MoveRotation(rb.rotation * Quaternion.Euler(new Vector3(0, userRudder * rotationModifier * shipSpeed, 0)));
-        rb.MovePosition(rb.position + new Vector3(shipSpeed * thrustModifier[0] * Mathf.Sin(Mathf.Deg2Rad * rb.rotation.eulerAngles.y), 0, shipSpeed * thrustModifier[0] * Mathf.Cos(Mathf.Deg2Rad * rb.rotation.eulerAngles.y)));
+        rb.MovePosition(rb.position + new Vector3(shipSpeed * thrustModifier * Mathf.Sin(Mathf.Deg2Rad * rb.rotation.eulerAngles.y), 0, shipSpeed * thrustModifier * Mathf.Cos(Mathf.Deg2Rad * rb.rotation.eulerAngles.y)));
     }
 }

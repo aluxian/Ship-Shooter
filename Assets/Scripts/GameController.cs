@@ -20,16 +20,19 @@ public class GameController : MonoBehaviour
 
     private bool playing;
 
+    public WindController wind;
+
     // Start is called before the first frame update
     void Start()
     {
         playing = true;
         endText.text = "";
     }
-
+    
     // Update is called once per frame
     void Update()
     {
+        endText.text = "Wind Bearing, Speed:" + wind.direction.ToString("D3") + ", " + wind.windPower.ToString("F3");
         if (Time.time > lastSpawn + spawnTime)
         {
             lastSpawn = Time.time;
