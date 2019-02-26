@@ -380,27 +380,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ab55551709dac4d55ad6572b89acd743, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.0009849383
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ab55551709dac4d55ad6572b89acd743, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.34978852
+      value: 0.34201866
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ab55551709dac4d55ad6572b89acd743, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9368287
+      value: 0.93968874
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ab55551709dac4d55ad6572b89acd743, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.06946283
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ab55551709dac4d55ad6572b89acd743, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.01969645
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ab55551709dac4d55ad6572b89acd743, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 40.949
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ab55551709dac4d55ad6572b89acd743, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0027060963
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ab55551709dac4d55ad6572b89acd743, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ab55551709dac4d55ad6572b89acd743, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab55551709dac4d55ad6572b89acd743, type: 3}
@@ -889,7 +901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d35f5765b3b52438c95bc4fe484532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationModifier: 0.25
+  rotationModifier: 0.5
   sailModifier: {x: 5, y: 2}
   thrustModifier: 0.5
   sailAngle: 0
@@ -898,7 +910,7 @@ MonoBehaviour:
   sailAngleMin: -20
   sailAngleMax: 20
   shipSpeed: 0
-  maxSpeed: 0.5
+  maxSpeed: 0.2
   sailPosition: 0
   tiltModifier: 0
   shot: {fileID: 5812275666394443856, guid: 3fbb7f51f13e6364d9091b933a60020b, type: 3}

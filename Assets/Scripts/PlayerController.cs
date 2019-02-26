@@ -101,13 +101,13 @@ public class PlayerController : MonoBehaviour
         {
             sailPosition += sailModifier[0] * userSails;
         }
-        else
+        else if(userSails <= 0)
         {
             sailPosition += sailModifier[1] * userSails;
         }
 
 
-        if(sailPosition > 1)
+        if(sailPosition > sailMax)
         {
             sailPosition = sailMax;
         }
@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour
         {
             sailAngle = sailAngleMin;
         }
-        shipSpeed = shipSpeed * dragCoefficient;
+        shipSpeed -= shipSpeed * dragCoefficient;
 
 
 
