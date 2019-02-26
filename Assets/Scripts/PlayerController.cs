@@ -158,9 +158,14 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-
-        meshHolder.rotation *= Quaternion.Euler(new Vector3(0, 0, tiltResetModifier * -1 * Mathf.Sign(theRotation.z)));
-
+        if (Mathf.Abs(theRotation.z) < tiltResetModifier)
+        {
+            meshHolder.rotation *= Quaternion.Euler(new Vector3(0, 0, Mathf.Abs(theRotation.z) * -1 * Mathf.Sign(theRotation.z)));
+        }
+        else
+        {
+            meshHolder.rotation *= Quaternion.Euler(new Vector3(0, 0, tiltResetModifier * -1 * Mathf.Sign(theRotation.z)));
+        }
         meshHolder.rotation *= Quaternion.Euler(new Vector3(0, 0, tiltModifier * userRudder));
         if (theRotation.z > tiltMax)
         {

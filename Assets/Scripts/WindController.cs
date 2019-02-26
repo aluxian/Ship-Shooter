@@ -13,6 +13,8 @@ public class WindController : MonoBehaviour
     public float randomicityDirection;
     public int direction;
 
+    private Transform arrow;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,7 @@ public class WindController : MonoBehaviour
         {
             windPower = Random.Range(windMin, windMax);
         }
+        arrow = this.transform.Find("Arrow").transform;
     }
 
     // Update is called once per frame
@@ -48,5 +51,7 @@ public class WindController : MonoBehaviour
         {
             direction = directionMax;
         }
+
+        arrow.rotation = Quaternion.Euler(new Vector3(90, 0, direction - 90));
     }
 }
