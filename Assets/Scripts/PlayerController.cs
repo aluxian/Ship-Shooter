@@ -26,6 +26,10 @@ public class PlayerController : MonoBehaviour
 
     public float sailPosition;
 
+    public float tiltModifier;
+    public float tiltResetModifier;
+    public float tiltMax;
+
     //
     // Shots
     //
@@ -34,7 +38,7 @@ public class PlayerController : MonoBehaviour
     public Transform[] shotSpawnsStarboard;
     public float reloadTime;
 
-    public float dragCoefficient; // Multiplication performed with drag - smaller is more drag! Can only be in range 0-1
+    public float dragCoefficient; 
     
     private float nextFirePort;
     private float nextFireStarboard;
@@ -57,12 +61,14 @@ public class PlayerController : MonoBehaviour
 
     public WindController wind;
 
+    private Transform meshHolder;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         auShot = GetComponent<AudioSource>();
+        meshHolder = this.gameObject.transform.Find("MeshHolder").transform;
     }
 
     // Update is called once per frame
@@ -137,6 +143,34 @@ public class PlayerController : MonoBehaviour
         {
             shipSpeed = maxSpeed;
         }
+
+        Vector3 theRotation = meshHolder.rotation.eulerAngles;
+        for (int x = 0; x < 3; x++)
+        {
+
+            if (theRotation[x] > 180)
+            {
+                theRotation[x] -= 360;
+            }
+            else if (theRotation[x] < -180)
+            {
+                theRotation[x] += 360;
+            }
+        }
+
+
+        meshHolder.rotation *= Quaternion.Euler(new Vector3(0, 0, tiltResetModifier * -1 * Mathf.Sign(theRotation.z)));
+
+        meshHolder.rotation *= Quaternion.Euler(new Vector3(0, 0, tiltModifier * userRudder));
+        if (theRotation.z > tiltMax)
+        {
+            meshHolder.rotation = Quaternion.Euler(new Vector3(theRotation.x, theRotation.y, tiltMax));
+        }
+        else if(theRotation.z < -tiltMax)
+        {
+            meshHolder.rotation = Quaternion.Euler(new Vector3(theRotation.x, theRotation.y, -tiltMax));
+        }
+
         
 
         rb.MoveRotation(rb.rotation * Quaternion.Euler(new Vector3(0, userRudder * rotationModifier * shipSpeed, 0)));
