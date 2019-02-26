@@ -1264,9 +1264,9 @@ MonoBehaviour:
   shipSpeed: 0
   maxSpeed: 0.3
   sailPosition: 0
-  tiltModifier: 0.5
-  tiltResetModifier: 1
-  tiltMax: 30
+  tiltModifier: 0.8
+  tiltResetModifier: 0.5
+  tiltMax: 15
   shot: {fileID: 5812275666394443856, guid: 3fbb7f51f13e6364d9091b933a60020b, type: 3}
   shotSpawnsPort:
   - {fileID: 2111331758}
