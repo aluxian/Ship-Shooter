@@ -1190,7 +1190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationModifier: 4
-  sailModifier: {x: 5, y: 5}
+  sailModifier: {x: 0.4, y: 0.2}
   thrustModifier: 0.5
   sailAngle: 0
   sailMin: 0
@@ -1198,9 +1198,8 @@ MonoBehaviour:
   sailAngleMin: -20
   sailAngleMax: 20
   shipSpeed: 0
-  maxSpeed: 0.2
+  maxSpeed: 0.3
   sailPosition: 0
-  tiltModifier: 0
   shot: {fileID: 5812275666394443856, guid: 3fbb7f51f13e6364d9091b933a60020b, type: 3}
   shotSpawnsPort:
   - {fileID: 2111331758}
