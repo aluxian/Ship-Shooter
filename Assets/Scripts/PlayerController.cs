@@ -26,8 +26,6 @@ public class PlayerController : MonoBehaviour
 
     public float sailPosition;
 
-    public float tiltModifier;
-
     //
     // Shots
     //
@@ -106,7 +104,7 @@ public class PlayerController : MonoBehaviour
             sailPosition += sailModifier[1] * userSails;
         }
 
-
+        
         if(sailPosition > sailMax)
         {
             sailPosition = sailMax;
