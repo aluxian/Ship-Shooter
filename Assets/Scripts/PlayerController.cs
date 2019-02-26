@@ -97,7 +97,15 @@ public class PlayerController : MonoBehaviour
         float userRudder = Input.GetAxis("Horizontal");
         float userSails = Input.GetAxis("Vertical");
 
-        sailPosition += sailModifier[(int)userSails + 1] * userSails;
+        if (userSails > 0)
+        {
+            sailPosition += sailModifier[0] * userSails;
+        }
+        else
+        {
+            sailPosition += sailModifier[1] * userSails;
+        }
+
 
         if(sailPosition > 1)
         {
@@ -118,19 +126,19 @@ public class PlayerController : MonoBehaviour
         }
         shipSpeed = shipSpeed * dragCoefficient;
 
-        float diff = ((Mathf.Deg2Rad * rb.rotation.eulerAngles.y) + sailAngle - wind.direction) % 360;
-        if(diff > 180)
+
+
+        shipSpeed += Mathf.Abs(thrustModifier * sailPosition * wind.windPower / wind.windMax);
+
+        if (shipSpeed < 0)
         {
-            diff -= 360;
-        }
-        else if(diff < -180)
-        {
-            diff += 360;
+            shipSpeed = 0;
         }
 
-        shipSpeed += Mathf.Abs(thrustModifier * sailPosition * Mathf.Cos(diff) * wind.windPower / wind.windMax);
-
-        
+        if (shipSpeed > maxSpeed)
+        {
+            shipSpeed = maxSpeed;
+        }
         
 
         rb.MoveRotation(rb.rotation * Quaternion.Euler(new Vector3(0, userRudder * rotationModifier * shipSpeed, 0)));
