@@ -46,8 +46,6 @@ public class PlayerMovement : MonoBehaviour
     //
     
     // Foreign Components
-    [SerializeField]
-    public Boundary boundary;
     public GameController gameController;
 
     public WindController wind;

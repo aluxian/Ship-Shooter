@@ -26,7 +26,6 @@ public class GameController : MonoBehaviour
     void Start()
     {
         playing = true;
-        endText.text = "";
     }
     
     // Update is called once per frame
