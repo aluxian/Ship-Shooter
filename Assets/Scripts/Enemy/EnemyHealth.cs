@@ -23,6 +23,7 @@ public class EnemyHealth : MonoBehaviour
     //
     //AudioSource playerAudio;
     EnemyMovement movement;
+    Collider collider;
     //PlayerShooting playerShooting;
 
 
@@ -31,6 +32,7 @@ public class EnemyHealth : MonoBehaviour
     {
         //playerAudio = GetComponent<AudioSource>();
         movement = GetComponent<EnemyMovement>();
+        collider = GetComponent<Collider>();
         //playerShooting = GetComponentInChildren <PlayerShooting> ();
     }
 
@@ -59,5 +61,21 @@ public class EnemyHealth : MonoBehaviour
         Destroy(this);
         Instantiate(explosion, transform.position, transform.rotation);
         //playerShooting.enabled = false;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Boundary")
+        {
+            return;
+        }
+        
+        if (other.tag == "Projectile")
+        {
+            TakeDamage(other.GetComponent<ProjectileAttack>().attackStrength);
+            Instantiate(explosion, other.transform.position, other.transform.rotation);
+        }
+        
+
     }
 }

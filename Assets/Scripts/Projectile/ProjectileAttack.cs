@@ -2,16 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileMovement : MonoBehaviour
+public class ProjectileAttack : MonoBehaviour
 {
-    public float speed;
-    private Rigidbody rb;
+    public int attackStrength = 20;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        rb.velocity = transform.forward * speed;
+        
     }
 
     // Update is called once per frame
