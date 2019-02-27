@@ -97,9 +97,10 @@ public class PlayerController : MonoBehaviour
         float userRudder = Input.GetAxis("Horizontal");
         float userSails = Input.GetAxis("Vertical");
 
-        sailPosition += sailModifier[(int)userSails + 1] * userSails;
+        //sailPosition += sailModifier[(int)userSails + 1] * userSails;
+        sailPosition += sailModifier[(int)userSails] * userSails;
 
-        if(sailPosition > 1)
+        if (sailPosition > 1)
         {
             sailPosition = sailMax;
         }
