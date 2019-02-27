@@ -30,6 +30,9 @@ public class PlayerController : MonoBehaviour
     public float tiltResetModifier;
     public float tiltMax;
 
+    public int health;
+    public int maxHealth;
+
     //
     // Shots
     //
@@ -62,7 +65,7 @@ public class PlayerController : MonoBehaviour
     public WindController wind;
 
     private Transform meshHolder;
-
+    public GameController gameController;
     // Start is called before the first frame update
     void Start()
     {
@@ -180,5 +183,17 @@ public class PlayerController : MonoBehaviour
 
         rb.MoveRotation(rb.rotation * Quaternion.Euler(new Vector3(0, userRudder * rotationModifier * shipSpeed, 0)));
         rb.MovePosition(rb.position + new Vector3(shipSpeed * thrustModifier * Mathf.Sin(Mathf.Deg2Rad * rb.rotation.eulerAngles.y), 0, shipSpeed * thrustModifier * Mathf.Cos(Mathf.Deg2Rad * rb.rotation.eulerAngles.y)));
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if(health <= 0)
+        {
+            Destroy(gameObject);
+            // play some sounds and make an explosion or something
+            // or maybe play an animation as well, whatever really
+            gameController.endGame();
+        }
     }
 }
