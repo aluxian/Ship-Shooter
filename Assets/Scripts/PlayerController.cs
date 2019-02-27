@@ -84,6 +84,7 @@ public class PlayerController : MonoBehaviour
             {
                 Instantiate(shot, shotSpawnsPort[x].position, shotSpawnsPort[x].rotation);
                 auShot.Play();
+                gameController.IncreaseScore(3); // just to test the score update works
             }
         }
 
@@ -94,6 +95,7 @@ public class PlayerController : MonoBehaviour
             {
                 Instantiate(shot, shotSpawnsStarboard[x].position, shotSpawnsStarboard[x].rotation);
                 auShot.Play();
+                gameController.IncreaseScore(3); // just to test the score update works
             }
         }
     }
