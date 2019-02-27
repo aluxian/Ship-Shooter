@@ -32,29 +32,25 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        endText.text = "Wind Bearing, Speed:" + wind.direction.ToString("D3") + ", " + wind.windPower.ToString("F3");
+        //windText.text = "Wind Bearing, Speed:" + wind.direction.ToString("D3") + ", " + wind.windPower.ToString("F3");
         if (Time.time > lastSpawn + spawnTime)
         {
             lastSpawn = Time.time;
             //StartCoroutine(SpawnWave());
         }
-        UpdateScore();
+
         if (!playing)
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
-            endText.text = "You Lost. Press 'R' to play again";
+            //endText.text = "You Lost. Press 'R' to play again";
         }
         
     }
 
-    void UpdateScore()
-    {
-        scoreText.text = "Score: " + score;
-    }
-
+    
     IEnumerator SpawnWave()
     {
         int n = (int)Random.Range(1, 7);
@@ -65,10 +61,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void IncreaseScore(int amount)
-    {
-        score += amount;
-    }
+   
 
     public void endGame()
     {
