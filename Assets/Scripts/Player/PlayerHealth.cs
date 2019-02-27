@@ -42,6 +42,7 @@ public class PlayerHealth : MonoBehaviour
         //playerAudio = GetComponent<AudioSource>();
         playerMovement = GetComponent<PlayerMovement>();
         //playerShooting = GetComponentInChildren <PlayerShooting> ();
+        healthSlider.value = currentHealth;
     }
 
 
