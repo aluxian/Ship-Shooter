@@ -55,12 +55,11 @@ public class EnemyHealth : MonoBehaviour
     {
         isDead = true;
 
-        //playerShooting.DisableEffects ();
 
-
-        Destroy(this);
+        Destroy(gameObject);
+        
         Instantiate(explosion, transform.position, transform.rotation);
-        //playerShooting.enabled = false;
+
     }
 
     void OnTriggerEnter(Collider other)
@@ -70,12 +69,11 @@ public class EnemyHealth : MonoBehaviour
             return;
         }
         
-        if (other.tag == "Projectile")
+        if (other.tag == "PlayerProjectile")
         {
             TakeDamage(other.GetComponent<ProjectileAttack>().attackStrength);
             Instantiate(explosion, other.transform.position, other.transform.rotation);
         }
-        
 
     }
 }
