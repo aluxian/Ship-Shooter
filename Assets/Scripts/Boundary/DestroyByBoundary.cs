@@ -11,8 +11,11 @@ public class DestroyByBoundary : MonoBehaviour
         
     }
 
-    private void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider other)
     {
-        Destroy(other.gameObject);
+        if (other.tag == "PlayerProjectile")
+        {
+            Destroy(other.gameObject);
+        }
     }
 }
