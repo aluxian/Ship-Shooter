@@ -16,8 +16,8 @@ public class EnemyMovement : MonoBehaviour
     //
     // Timing
     //
-    private float timer;
-    private float nextTurn;
+    public float timer;
+    public float nextTurn;
     //
     // Components
     //
@@ -26,12 +26,12 @@ public class EnemyMovement : MonoBehaviour
     //
     // World
     //
-    public GameObject player;
-    public Transform playerTransform;
+    protected GameObject player;
+    protected Transform playerTransform;
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.Find("Player");
         playerTransform = player.GetComponent<Transform>();
         rb = gameObject.GetComponent<Rigidbody>();
         timer = 0;
@@ -40,6 +40,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
+        
         float separation = Vector3.Distance(transform.position, playerTransform.position);
         if(separation <= detectionRadius)
         {
@@ -56,8 +57,10 @@ public class EnemyMovement : MonoBehaviour
             rb.MovePosition(rb.position + new Vector3(maxSpeed *  Mathf.Sin(Mathf.Deg2Rad * rb.rotation.eulerAngles.y), 0, maxSpeed * Mathf.Cos(Mathf.Deg2Rad * rb.rotation.eulerAngles.y)));
             if(timer >= nextTurn)
             {
-                float angle = Vector3.Angle(transform.rotation.eulerAngles, playerTransform.rotation.eulerAngles);
-                rb.rotation = Quaternion.Euler(new Vector3(0, angle * rotationModifier, 0));
+                float angle = Mathf.Atan2(playerTransform.position.z - transform.position.z, playerTransform.position.x - transform.position.x);
+                //float angle = playerTransform.rotation.eulerAngles.y - transform.rotation.eulerAngles.y;
+                rb.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, angle, transform.rotation.eulerAngles.z));
+                //rb.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, playerTransform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z));
                 timer = 0;
                 nextTurn = rotationDelay;
             }
