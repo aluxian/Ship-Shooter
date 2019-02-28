@@ -731,6 +731,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.53, y: 2.13, z: 12.6}
   m_Center: {x: 0, y: 0, z: 0.67}
+--- !u!114 &466014921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466014917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e9df4d88ab7d9248886990c3668f611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 100004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
+  strength: 10
+  attackDelay: 1
+  attackRadius: 0
+  enableRanged: 0
+  enableCollider: 1
 --- !u!4 &466014922 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: f460d8b372e8bba469c35f86d89d013b,
@@ -1537,15 +1555,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e9df4d88ab7d9248886990c3668f611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameController: {fileID: 0}
   explosion: {fileID: 100004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
   strength: 60
   attackDelay: 2
   attackRadius: 10
-  nextAttack: 0
-  timer: 0
-  playerHealth: {fileID: 0}
-  player: {fileID: 0}
+  enableRanged: 1
+  enableCollider: 0
 --- !u!114 &801706606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1666,6 +1681,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.54, y: 1.42, z: 3.64}
   m_Center: {x: 0, y: -0.73, z: -0.5}
+--- !u!114 &826303738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826303735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e9df4d88ab7d9248886990c3668f611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 100004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
+  strength: 5
+  attackDelay: 1
+  attackRadius: 0
+  enableRanged: 0
+  enableCollider: 1
 --- !u!114 &826303739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1772,7 +1805,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 460377159}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.16
   m_Height: 0.95
@@ -2108,9 +2141,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1540707880}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3049fdc3d27e51047b17b733f427a5a6, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e9df4d88ab7d9248886990c3668f611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 100004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
+  strength: 20
+  attackDelay: 4
+  attackRadius: 3
+  enableRanged: 0
+  enableCollider: 1
 --- !u!1 &1595627974
 GameObject:
   m_ObjectHideFlags: 0
