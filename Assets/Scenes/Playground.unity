@@ -652,7 +652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: f460d8b372e8bba469c35f86d89d013b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.36650118
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: f460d8b372e8bba469c35f86d89d013b, type: 3}
       propertyPath: m_LocalRotation.z
@@ -660,7 +660,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: f460d8b372e8bba469c35f86d89d013b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9304176
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: f460d8b372e8bba469c35f86d89d013b, type: 3}
       propertyPath: m_RootOrder
@@ -672,7 +672,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: f460d8b372e8bba469c35f86d89d013b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 43
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: f460d8b372e8bba469c35f86d89d013b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -729,8 +729,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.53, y: 2.13, z: 12.6}
-  m_Center: {x: 0, y: 0, z: 0.67}
+  m_Size: {x: 1.79, y: 2.13, z: 6.64}
+  m_Center: {x: 0, y: 0, z: 0.25}
 --- !u!114 &466014921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -744,10 +744,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 100004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
-  strength: 10
+  strength: 5
   attackDelay: 1
-  attackRadius: 10
-  enableRanged: 1
+  attackRadius: 0
+  enableRanged: 0
   enableCollider: 1
 --- !u!4 &466014922 stripped
 Transform:
@@ -764,17 +764,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 466014917}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a656a6ef06e94d24e80c23661920ad65, type: 3}
+  m_Script: {fileID: 11500000, guid: 32ffb44380d277940bc95f5682983ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 80
-  rotationModifier: 90
+  detectionRadius: 50
+  rotationModifier: 2
   maxSpeed: 0.1
-  idleSpeed: 1
   active: 0
   rotationDelay: 1
   timer: 0
-  nextTurn: 1
+  nextTurn: 0
+  diveDelay: 10
+  diveDepth: 5
+  diveTimer: 0
+  nextDive: 0
+  diveSpeedModifier: 4
+  diveTime: 0
+  diving: 0
+  raiseHeight: 0
+  diveDistance: 30
+  emerged: 1
 --- !u!1 &480011542
 GameObject:
   m_ObjectHideFlags: 0
@@ -3002,7 +3011,6 @@ MonoBehaviour:
   detectionRadius: 200
   rotationModifier: 0
   maxSpeed: 0.05
-  idleSpeed: 0
   active: 0
   rotationDelay: 2
   timer: 0
@@ -3788,7 +3796,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 801674440}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.19, y: 0, z: 0}
+  m_LocalPosition: {x: -32.7, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1802770244}
@@ -7986,7 +7994,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7f1caad1d15eda94db80ce61b2cf95a9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.14
+      value: 33.3
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7f1caad1d15eda94db80ce61b2cf95a9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7994,7 +8002,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7f1caad1d15eda94db80ce61b2cf95a9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 30.9
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7f1caad1d15eda94db80ce61b2cf95a9, type: 3}
       propertyPath: m_LocalRotation.x
@@ -8067,7 +8075,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.54, y: 1.42, z: 3.64}
+  m_Size: {x: 0.54, y: 1.93, z: 3.64}
   m_Center: {x: 0, y: -0.73, z: -0.5}
 --- !u!114 &826303738
 MonoBehaviour:
@@ -8103,6 +8111,41 @@ MonoBehaviour:
   currentHealth: 20
   explosion: {fileID: 100004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
   deathClip: {fileID: 0}
+--- !u!114 &826303741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826303735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c68ad161bce76e14297956c26dbef88d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pivot: {x: 25, y: 0, z: 25}
+  angularVelocity: -10
+  radius: 0
+  active: 1
+--- !u!114 &826303742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826303735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b226f652be45dd4f9c4a9d056c4a18c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRadius: 15
+  rotationModifier: 0
+  maxSpeed: 0.4
+  active: 0
+  rotationDelay: 0.8
+  timer: 0
+  nextTurn: 0
 --- !u!1 &918597383
 GameObject:
   m_ObjectHideFlags: 0
@@ -8499,6 +8542,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1540707881}
   - component: {fileID: 1540707882}
+  - component: {fileID: 1540707883}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -8538,6 +8582,19 @@ MonoBehaviour:
   attackRadius: 3
   enableRanged: 0
   enableCollider: 1
+--- !u!65 &1540707883
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540707880}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.93, y: 1, z: -2.73}
+  m_Center: {x: 0, y: 0, z: 4.97}
 --- !u!1 &1595627974
 GameObject:
   m_ObjectHideFlags: 0
