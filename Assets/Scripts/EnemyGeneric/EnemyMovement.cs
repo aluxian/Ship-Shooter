@@ -29,7 +29,7 @@ public class EnemyMovement : MonoBehaviour
     protected GameObject player;
     protected Transform playerTransform;
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         player = GameObject.Find("Player");
         playerTransform = player.GetComponent<Transform>();
@@ -38,7 +38,7 @@ public class EnemyMovement : MonoBehaviour
         nextTurn = 0;
     }
 
-    void Update()
+    protected void Update()
     {
         
         float separation = Vector3.Distance(transform.position, playerTransform.position);
@@ -49,7 +49,7 @@ public class EnemyMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    protected void FixedUpdate()
     {
         timer += Time.deltaTime;
         if (active)

@@ -10,7 +10,7 @@ public class KrakenMovement : EnemyMovement
     public float depth; // POSITIVE FLOAT
     public float raiseHeight; // maximum height
     public float[] delays; // to go up, to go down
-    public float[] speeds; // going up, going down, going forwards
+    public float[] speeds; // going up, going down
 
     //
     // Timing
@@ -23,14 +23,21 @@ public class KrakenMovement : EnemyMovement
 
     void Start()
     {
+        base.Start();
         nextMove = delays[1];
         btimer = 0;
         moving = false;
     }
 
+    void Update()
+    {
+        base.Update();
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
+        base.FixedUpdate();
         btimer += Time.deltaTime;
         //
         // Raising/Lowering
