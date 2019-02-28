@@ -10,7 +10,6 @@ public class EnemyMovement : MonoBehaviour
     public float detectionRadius;
     public float rotationModifier;
     public float maxSpeed;
-    public float idleSpeed;
     public bool active;
     public float rotationDelay;
     //
@@ -40,7 +39,6 @@ public class EnemyMovement : MonoBehaviour
 
     protected void Update()
     {
-        
         float separation = Vector3.Distance(transform.position, playerTransform.position);
         if(separation <= detectionRadius)
         {
