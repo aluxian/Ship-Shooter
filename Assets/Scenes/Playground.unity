@@ -636,7 +636,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: f460d8b372e8bba469c35f86d89d013b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4
+      value: 28.86
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: f460d8b372e8bba469c35f86d89d013b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -652,15 +652,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: f460d8b372e8bba469c35f86d89d013b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.36650118
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: f460d8b372e8bba469c35f86d89d013b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: f460d8b372e8bba469c35f86d89d013b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9304176
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: f460d8b372e8bba469c35f86d89d013b, type: 3}
       propertyPath: m_RootOrder
@@ -672,7 +672,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: f460d8b372e8bba469c35f86d89d013b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: f460d8b372e8bba469c35f86d89d013b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -755,6 +755,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 466014916}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &466014923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466014917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a656a6ef06e94d24e80c23661920ad65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRadius: 10
+  rotationModifier: 90
+  maxSpeed: 0.1
+  idleSpeed: 1
+  active: 1
+  rotationDelay: 0.3
+  timer: 0
+  nextTurn: 0
 --- !u!1 &480011542
 GameObject:
   m_ObjectHideFlags: 0
@@ -1532,6 +1552,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRadius: 0
+  rotationModifier: 0
+  maxSpeed: 0
+  idleSpeed: 0
+  active: 0
+  rotationDelay: 0
+  timer: 0
+  nextTurn: 0
   depth: 8
   raiseHeight: 0
   delays:
@@ -1541,7 +1568,7 @@ MonoBehaviour:
   - 3
   - 5
   - 2
-  timer: 0
+  btimer: 0
   emerged: 1
 --- !u!114 &801706605
 MonoBehaviour:

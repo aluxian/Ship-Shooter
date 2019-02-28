@@ -38,7 +38,7 @@ public class EnemyMovement : MonoBehaviour
         nextTurn = 0;
     }
 
-    private void Update()
+    void Update()
     {
         
         float separation = Vector3.Distance(transform.position, playerTransform.position);
@@ -57,10 +57,11 @@ public class EnemyMovement : MonoBehaviour
             rb.MovePosition(rb.position + new Vector3(maxSpeed *  Mathf.Sin(Mathf.Deg2Rad * rb.rotation.eulerAngles.y), 0, maxSpeed * Mathf.Cos(Mathf.Deg2Rad * rb.rotation.eulerAngles.y)));
             if(timer >= nextTurn)
             {
-                float angle = Mathf.Atan2(playerTransform.position.z - transform.position.z, playerTransform.position.x - transform.position.x);
+                float angle = Mathf.Atan2(playerTransform.position.x - transform.position.x, playerTransform.position.z - transform.position.z);
                 //float angle = playerTransform.rotation.eulerAngles.y - transform.rotation.eulerAngles.y;
-                rb.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, angle, transform.rotation.eulerAngles.z));
+                rb.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, angle * Mathf.Rad2Deg, transform.rotation.eulerAngles.z));
                 //rb.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, playerTransform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z));
+                //rb.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + playerTransform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z));
                 timer = 0;
                 nextTurn = rotationDelay;
             }
