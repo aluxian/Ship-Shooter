@@ -9,6 +9,8 @@ public class EnemyAttack : MonoBehaviour
     public int strength;
     public float attackDelay;
     public float attackRadius;
+    public bool enableRanged;
+    public bool enableCollider;
 
     private float nextAttack;
     private float timer;
@@ -34,19 +36,21 @@ public class EnemyAttack : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Boundary")
+        if (enableCollider)
         {
-            return;
+            if (other.tag == "Boundary")
+            {
+                return;
+            }
+
+            if (other.tag == "Player")
+            {
+                // PlayerController player = (PlayerController)other.gameObject;
+                playerHealth.TakeDamage(strength);
+                Instantiate(explosion, other.transform.position, transform.rotation);
+                timer = 0;
+            }
         }
-        
-        if (other.tag == "Player")
-        {
-            // PlayerController player = (PlayerController)other.gameObject;
-            playerHealth.TakeDamage(strength);
-            Instantiate(explosion, other.transform.position, transform.rotation);
-            timer = 0;
-        }
-        
     }
 
     private void Update()
@@ -54,11 +58,14 @@ public class EnemyAttack : MonoBehaviour
         timer += Time.deltaTime;
 
         float distance = Vector3.Distance(transform.position, player.transform.position);
-        if(timer >= nextAttack && distance <= attackRadius)
+        if (enableRanged)
         {
-            playerHealth.TakeDamage(strength);
-            timer = 0;
-            nextAttack = attackDelay;
+            if (timer >= nextAttack && distance <= attackRadius)
+            {
+                playerHealth.TakeDamage(strength);
+                timer = 0;
+                nextAttack = attackDelay;
+            }
         }
     }
 }

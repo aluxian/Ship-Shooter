@@ -73,6 +73,7 @@ public class EnemyHealth : MonoBehaviour
         {
             TakeDamage(other.GetComponent<ProjectileAttack>().attackStrength);
             Instantiate(explosion, other.transform.position, other.transform.rotation);
+            Destroy(other.gameObject);
         }
 
     }

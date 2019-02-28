@@ -16,3 +16,6 @@ Explosion effect:
 Heart image:
 	Source: https://assetstore.unity.com/packages/essentials/tutorial-projects/survival-shooter-tutorial-40756
 	Author: Unity Technologies - https://assetstore.unity.com/publishers/1
+Water Shader, Model, Animation:
+	Source:
+	Author:
