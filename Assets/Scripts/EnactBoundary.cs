@@ -11,7 +11,7 @@ public class EnactBoundary : MonoBehaviour
     protected float xmax = 70;
     protected float zmin = -50;
     protected float zmax = 50;
-    protected float bounce = 0.5f;
+    protected float bounce = 4;
     protected Rigidbody rb;
 
     // Start is called before the first frame update
