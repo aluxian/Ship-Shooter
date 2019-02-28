@@ -62,10 +62,13 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        damaged = true;
+        if (!isDead)
+        {
+            damaged = true;
 
-        currentHealth -= amount;
+            currentHealth -= amount;
 
+        }
         healthSlider.value = currentHealth;
 
 

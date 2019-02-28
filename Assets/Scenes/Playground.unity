@@ -767,14 +767,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a656a6ef06e94d24e80c23661920ad65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 10
+  detectionRadius: 80
   rotationModifier: 90
   maxSpeed: 0.1
   idleSpeed: 1
-  active: 1
-  rotationDelay: 0.3
+  active: 0
+  rotationDelay: 1
   timer: 0
-  nextTurn: 0
+  nextTurn: 1
 --- !u!1 &480011542
 GameObject:
   m_ObjectHideFlags: 0
