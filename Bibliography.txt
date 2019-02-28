@@ -10,7 +10,10 @@ Kraken model:
 Player model:
 	Source: https://poly.google.com/view/7aHmBgTur3V
 	Author: Braden Bunk - https://poly.google.com/user/8aQJGg9AUJy
-Explosion effect:
+Explosion visual effect:
+	Source: https://assetstore.unity.com/packages/essentials/tutorial-projects/space-shooter-tutorial-13866
+	Author: Unity Technologies - https://assetstore.unity.com/publishers/1
+Cannon Sound Effect:
 	Source: https://assetstore.unity.com/packages/essentials/tutorial-projects/space-shooter-tutorial-13866
 	Author: Unity Technologies - https://assetstore.unity.com/publishers/1
 Heart image:

@@ -16,7 +16,7 @@ public class KrakenMovement : EnemyMovement
     // Timing
     //
     private float nextMove;
-    public float timer;
+    public float btimer;
     private bool moving;
     private float velocity;
     public bool emerged; // false = up, true = down
@@ -24,21 +24,21 @@ public class KrakenMovement : EnemyMovement
     void Start()
     {
         nextMove = delays[1];
-        timer = 0;
+        btimer = 0;
         moving = false;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        timer += Time.deltaTime;
+        btimer += Time.deltaTime;
         //
         // Raising/Lowering
         //
 
-        if (timer >= nextMove)
+        if (btimer >= nextMove)
         {
-            timer = 0;
+            btimer = 0;
             if (emerged == false)
             {
                 nextMove = delays[1];
