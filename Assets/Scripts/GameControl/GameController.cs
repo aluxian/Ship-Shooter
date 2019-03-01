@@ -6,25 +6,54 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    public Text endText;
 
+    //
+    // Parameters
+    //
+    public int numEnemies;
+    protected bool defaultSpawnBehaviour = true;
+
+    //
+    // Game State
+    //
     protected bool playing;
     protected bool gamePaused;
     public bool gameWon;
 
+    protected float timer;
+
+    //
+    // Audio
+    //
     public AudioClip[] clips;
     public int[] repeats;
 
-    public int repeatNumber;
-    public int clipNumber;
+    protected int repeatNumber;
+    protected int clipNumber;
 
-    public int numEnemies;
-
-    public WindController wind;
+    //
+    // Components
+    //
     private AudioSource au;
+    
+    //
+    // World
+    //
+    public WindController wind;
+    public Text endText;
+
+    //
+    // SpawnBehaviour
+    // 
+    public GameObject[] spawnLocations;
+    public Object[] spawnEnemies;
+    public int[] spawnRefs;
+    public float[] spawnDelays;
+    protected bool[] spawnState;
+        
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         playing = true;
         gamePaused = false;
@@ -34,10 +63,13 @@ public class GameController : MonoBehaviour
         au.Play();
         repeatNumber = 1;
         clipNumber = 0;
+        defaultSpawnBehaviour = true;
+        timer = 0;
+        spawnState = new bool[spawnDelays.Length];
     }
     
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         if (!playing)
         {
@@ -78,7 +110,26 @@ public class GameController : MonoBehaviour
         }
     }
 
-    
+    protected void FixedUpdate()
+    {
+        timer += Time.deltaTime;
+        if (!defaultSpawnBehaviour)
+        {
+            return;
+        }
+
+        for(int x = 0; x < spawnDelays.Length; x++)
+        {
+            if(spawnDelays[x] >= timer && !spawnState[x])
+            {
+                Instantiate(spawnEnemies[spawnRefs[x]], spawnLocations[x].transform.position, spawnLocations[x].transform.rotation);
+                spawnState[x] = true;
+            }
+        }
+
+    }
+
+
 
     public void endGame()
     {

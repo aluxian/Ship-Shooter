@@ -529,13 +529,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  currentHealth: 100000
+  currentHealth: 100
   damageImage: {fileID: 226261003}
   deathClip: {fileID: 0}
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.48235294}
   healthSlider: {fileID: 506952707}
-  gameController: {fileID: 0}
 --- !u!114 &460377161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -858,12 +857,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1e34d84586777245b10e080665bc772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  depth: 0
-  sinkSpeed: 0
-  clips: []
-  delays: []
+  depth: 20
+  sinkSpeed: 0.2
+  clips:
+  - {fileID: 8300000, guid: 95299bacd79d3cd4a9d19ccc67970fe5, type: 3}
+  delays:
+  - 0
   timer: 0
-  destructionDelay: 0
+  destructionDelay: 5
 --- !u!82 &466014926
 AudioSource:
   m_ObjectHideFlags: 0
@@ -876,7 +877,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1451,7 +1452,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endText: {fileID: 0}
   gameWon: 0
-  numEnemies: 0
+  clips:
+  - {fileID: 8300000, guid: 89fe19501d08d7245963d9df31072e01, type: 3}
+  - {fileID: 8300000, guid: e4939cd44f8af9b4eb7be8b9bd59ddb9, type: 3}
+  - {fileID: 8300000, guid: 459bb1cb155fe954698afd69edf5de87, type: 3}
+  - {fileID: 8300000, guid: 5932d9675eb50834e88abb1b16c9a333, type: 3}
+  repeats: 04000000040000000400000004000000
+  repeatNumber: 0
+  clipNumber: 0
+  numEnemies: 3
   wind: {fileID: 1165070841}
 --- !u!4 &608423574
 Transform:
@@ -1477,11 +1486,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7b04c59dd84f14039b601e1abbe7b884, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ca5b853872dbd5244a8ad9b0b1fa4a0f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.089
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2335,7 +2344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   depth: 20
-  sinkSpeed: 5
+  sinkSpeed: 0.3
   clips:
   - {fileID: 8300000, guid: 8ea383542d110584b88d98d620dd0726, type: 3}
   delays:
@@ -2372,7 +2381,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.451
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -8413,7 +8422,7 @@ MonoBehaviour:
   maxHealth: 20
   currentHealth: 20
   explosion: {fileID: 100004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
-  painSound: {fileID: 0}
+  painSound: {fileID: 8300000, guid: 8132b0591c325d4418d73d86af231aae, type: 3}
 --- !u!114 &826303740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8439,7 +8448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pivot: {x: 25, y: 0, z: 25}
-  angularVelocity: -10
+  angularVelocity: -20
   radius: 0
   active: 1
 --- !u!114 &826303742
@@ -8667,7 +8676,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 460377159}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.16
   m_Height: 0.95
@@ -8701,7 +8710,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3dc7455402dfa462b89a4bbd513955e9, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.631
   m_Pitch: 1
   Loop: 0
   Mute: 0
