@@ -12,6 +12,10 @@ public class EnemyMovement : MonoBehaviour
     public float maxSpeed;
     public bool active;
     public float rotationDelay;
+    private bool rising;
+    protected float spawnDepth;
+    protected float riseSpeed;
+
     //
     // Timing
     //
@@ -50,6 +54,15 @@ public class EnemyMovement : MonoBehaviour
     protected void FixedUpdate()
     {
         timer += Time.deltaTime;
+        if (rising)
+        {
+            rb.position += new Vector3(0, riseSpeed, 0);
+            if (rb.position.y >= 0)
+            {
+                rb.position = new Vector3(rb.position.x, 0, rb.position.z);
+                rising = false;
+            }
+        }
         if (active)
         {
             rb.MovePosition(rb.position + new Vector3(maxSpeed *  Mathf.Sin(Mathf.Deg2Rad * rb.rotation.eulerAngles.y), 0, maxSpeed * Mathf.Cos(Mathf.Deg2Rad * rb.rotation.eulerAngles.y)));
@@ -64,5 +77,12 @@ public class EnemyMovement : MonoBehaviour
                 nextTurn = rotationDelay;
             }
         }
+    }
+
+    public void Awake()
+    {
+        Start();
+        rb.position = new Vector3(rb.position.x, -spawnDepth, rb.position.z);
+        rising = true;
     }
 }

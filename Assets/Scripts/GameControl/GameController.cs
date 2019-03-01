@@ -47,7 +47,7 @@ public class GameController : MonoBehaviour
     // SpawnBehaviour
     // 
     public GameObject[] spawnLocations;
-    public Object[] spawnEnemies;
+    public GameObject[] spawnEnemies;
     public int[] spawnRefs;
     public float[] spawnDelays;
     protected bool[] spawnState;
