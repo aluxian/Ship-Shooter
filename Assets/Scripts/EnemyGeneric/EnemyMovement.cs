@@ -82,7 +82,7 @@ public class EnemyMovement : MonoBehaviour
     public void Awake()
     {
         Start();
-        rb.position -= new Vector3(0, spawnDepth, 0);
+        rb.position = new Vector3(rb.position.x, -spawnDepth, rb.position.z);
         rising = true;
     }
 }

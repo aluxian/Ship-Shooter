@@ -27,8 +27,8 @@ public class KrakenMovement : EnemyMovement
         nextMove = delays[1];
         btimer = 0;
         moving = false;
-        spawnDepth = -20;
-        riseSpeed = 0.1f;
+        spawnDepth = 20;
+        riseSpeed = 0.02f;
     }
 
     void Update()
@@ -82,6 +82,12 @@ public class KrakenMovement : EnemyMovement
                 transform.position += new Vector3(0, velocity, 0);
             }
         }
+    }
+    private void Awake()
+    {
+        spawnDepth = 20;
+        riseSpeed = 0.02f;
+        base.Awake();
     }
 }
 

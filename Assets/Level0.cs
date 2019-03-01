@@ -8,7 +8,7 @@ public class Level0 : GameController
     public int stage1Count = 0;
     protected int stage2Count = 0;
     public int stage1Target = 7;
-    protected int stage2Target = 7;
+    protected int stage2Target = 8;
     protected bool[] stageSetUp;
 
     public float level2_delay = 2;
