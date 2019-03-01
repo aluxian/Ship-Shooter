@@ -58,7 +58,7 @@ public class Trigger : MonoBehaviour
         triggerDeath.enabled = true;
     }
 
-    protected void Awake()
+    public void Awake()
     {
         Start();
         rb.position -= new Vector3(0, 2, 0);

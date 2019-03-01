@@ -19,12 +19,12 @@ public class Level0 : GameController
         base.Start();
         base.defaultSpawnBehaviour = false;
         triggers = GameObject.FindObjectsOfType<Trigger>();
-        for(int x = 0; x <= 7; x++)
+        stageSetUp = new bool[5];
+        for (int x = 0; x < triggers.Length; x++)
         {
+            //triggers[x].gameObject.GetComponent<Rigidbody>().Sleep();
             triggers[x].gameObject.SetActive(false);
         }
-        stageSetUp = new bool[5];
-        stageSetUp[0] = true;
     }
 
     // Update is called once per frame
@@ -39,11 +39,23 @@ public class Level0 : GameController
         {
             stage += 1;
         }
-        if(stage == 1 && !stageSetUp[1])
+        if(stage == 0 && !stageSetUp[0])
+        {
+            for (int x = 7; x <= 14; x++)
+            {
+                //triggers[x].gameObject.GetComponent<Rigidbody>().Sleep();
+                triggers[x].gameObject.SetActive(true);
+                triggers[x].gameObject.GetComponent<Trigger>().Awake();
+                stageSetUp[0] = true;
+            }
+        }
+        else if(stage == 1 && !stageSetUp[1])
         {
             for(int x = 0; x <= 7; x++)
             {
                 triggers[x].gameObject.SetActive(true);
+                triggers[x].gameObject.GetComponent<Trigger>().Awake();
+                stageSetUp[1] = true;
             }
         }
     }
