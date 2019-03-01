@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     //
     public int numEnemies;
     protected bool defaultSpawnBehaviour = true;
+    public int stage;
 
     //
     // Game State
@@ -130,6 +131,10 @@ public class GameController : MonoBehaviour
 
     }
 
+    public virtual void PullTrigger(int id)
+    {
+
+    }
 
 
     public void endGame()
