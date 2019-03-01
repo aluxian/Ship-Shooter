@@ -11,7 +11,9 @@ public class Level0 : GameController
     protected int stage2Target = 7;
     protected bool[] stageSetUp;
 
+    public float level2_delay = 2;
 
+    protected GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,7 @@ public class Level0 : GameController
             //triggers[x].gameObject.GetComponent<Rigidbody>().Sleep();
             triggers[x].gameObject.SetActive(false);
         }
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -41,7 +44,7 @@ public class Level0 : GameController
         }
         if(stage == 0 && !stageSetUp[0])
         {
-            for (int x = 7; x <= 14; x++)
+            for (int x = 8; x <= 14; x++)
             {
                 //triggers[x].gameObject.GetComponent<Rigidbody>().Sleep();
                 triggers[x].gameObject.SetActive(true);
@@ -57,6 +60,13 @@ public class Level0 : GameController
                 triggers[x].gameObject.GetComponent<Trigger>().Awake();
                 stageSetUp[1] = true;
             }
+        }
+        else if(stage == 2 && !stageSetUp[2])
+        {
+            GameObject kraken = Instantiate(spawnEnemies[0], player.transform.position + new Vector3(20, 0, 10), Quaternion.Euler(new Vector3(0, 0, 0)));
+            kraken.GetComponent<KrakenMovement>().Awake();
+            stageSetUp[2] = true;
+            numEnemies = 1;
         }
     }
 
