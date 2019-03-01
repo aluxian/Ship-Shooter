@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     public float sailPosition;
     public float sailMin;
     public float sailMax;
+    public Slider sailsPositionHudSlider;
 
     //Sails angle
     /*
@@ -44,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
     //
     // World
     //
-    
+
     // Foreign Components
     public GameController gameController;
 
@@ -92,6 +94,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //
+        // Sail position HUD
+        //
+        sailsPositionHudSlider.value = (sailPosition - sailMin) / (sailMax - sailMin) * 100; // scaled to be >= 0 and <= 100 because that's what the slider expects
+
+        //
         // Ship Movement
         // 
 
@@ -106,7 +113,6 @@ public class PlayerMovement : MonoBehaviour
         {
             shipSpeed = maxSpeed;
         }
-
 
         //
         // Ship Tilting 
