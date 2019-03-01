@@ -22,3 +22,28 @@ Heart image:
 Water Shader, Model, Animation:
 	Source:
 	Author:
+whaleambient1: https://freesound.org/people/cclaretc/sounds/458626/
+whale_death1: https://freesound.org/people/Tritus/sounds/186899/
+wood_creaking1: https://freesound.org/people/Breviceps/sounds/456814/
+wood_creaking2: https://freesound.org/people/Benboncan/sounds/101381/
+kraken_death1: https://freesound.org/people/JarredGibb/sounds/233279/
+wood_collision1: https://freesound.org/people/InspectorJ/sounds/352513/
+wood_collision2: https://freesound.org/people/kevinkace/sounds/66772/
+water1: https://freesound.org/people/InspectorJ/sounds/421184/
+shark_death1: https://freesound.org/people/Shaddius/sounds/450619/
+music library: https://freesound.org/people/LittleRobotSoundFactory/packs/18000/?page=1#sound
+island1: 
+	Source: https://poly.google.com/view/esKAALJfsrG
+	Author: Don Carson - https://poly.google.com/user/a4-Oxy9dNsF
+island2:
+	Source: https://poly.google.com/view/bzLVwG4AzvA
+	Author: Poly by Google - https://poly.google.com/user/4aEd8rQgKu2
+island3:
+	Source: https://poly.google.com/view/1jUt3HwyHfn
+	Author: Poly by Google - https://poly.google.com/user/4aEd8rQgKu2
+island4:
+	Source: https://poly.google.com/view/fG9iP5afr7U
+	Author: Poly by Google - https://poly.google.com/user/4aEd8rQgKu2
+island5:
+	Source: https://poly.google.com/view/8S-R-P1IJT9
+	Author: Poly by Google - https://poly.google.com/user/4aEd8rQgKu2

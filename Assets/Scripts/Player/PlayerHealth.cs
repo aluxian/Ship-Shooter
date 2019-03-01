@@ -27,7 +27,7 @@ public class PlayerHealth : MonoBehaviour
     // World
     //
     public Slider healthSlider;
-    public GameController gameController;
+    private GameController gameController;
 
     //
     // Components
@@ -92,8 +92,5 @@ public class PlayerHealth : MonoBehaviour
         playerAttack.enabled = false;
         playerDeath.enabled = true;
         gameController.endGame();
-
     }
-
-
 }

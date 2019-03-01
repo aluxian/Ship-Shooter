@@ -12,16 +12,28 @@ public class GameController : MonoBehaviour
     protected bool gamePaused;
     public bool gameWon;
 
+    public AudioClip[] clips;
+    public int[] repeats;
+
+    public int repeatNumber;
+    public int clipNumber;
+
     public int numEnemies;
 
     public WindController wind;
-    
+    private AudioSource au;
+
     // Start is called before the first frame update
     void Start()
     {
         playing = true;
         gamePaused = false;
         gameWon = false;
+        au = GetComponent<AudioSource>();
+        au.clip = clips[0];
+        au.Play();
+        repeatNumber = 1;
+        clipNumber = 0;
     }
     
     // Update is called once per frame
@@ -52,6 +64,17 @@ public class GameController : MonoBehaviour
                 gameWon = true;
                 playing = false;
             }
+        }
+        if (!au.isPlaying)
+        {
+            if(repeatNumber >= repeats[clipNumber])
+            {
+                clipNumber = (clipNumber + 1) % clips.Length;
+                repeatNumber = 0;
+            }
+            au.clip = clips[clipNumber];
+            au.Play();
+            repeatNumber += 1;
         }
     }
 
