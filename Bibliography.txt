@@ -31,6 +31,7 @@ wood_collision1: https://freesound.org/people/InspectorJ/sounds/352513/
 wood_collision2: https://freesound.org/people/kevinkace/sounds/66772/
 water1: https://freesound.org/people/InspectorJ/sounds/421184/
 shark_death1: https://freesound.org/people/Shaddius/sounds/450619/
+waves background: https://soundcloud.com/felixblume/waves-veracruz
 music library: https://freesound.org/people/LittleRobotSoundFactory/packs/18000/?page=1#sound
 Ding1:
 	Source: https://freesound.org/people/suzenako/sounds/320905/
