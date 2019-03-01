@@ -779,21 +779,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 727178673}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00861027b6bd5504fac7340ec96b028b, type: 3}
+  m_Script: {fileID: 11500000, guid: a080352b0b102b84abe2286fba09afd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   numEnemies: 0
   gameWon: 0
-  clips:
-  - {fileID: 8300000, guid: ca5b853872dbd5244a8ad9b0b1fa4a0f, type: 3}
-  repeats: 00000000
+  clips: []
+  repeats: 
   wind: {fileID: 0}
   endText: {fileID: 0}
   spawnLocations: []
-  spawnEnemies: []
+  spawnEnemies:
+  - {fileID: 826303735, guid: 8160f2fd2cf624c4da0dd7340e069670, type: 3}
+  - {fileID: 466014917, guid: 64206302d34a05446a77d95357dd7c02, type: 3}
+  - {fileID: 7781887567628335993, guid: b5467a3ae87db654c8ac434070719031, type: 3}
   spawnRefs: 
   spawnDelays: []
-  stage: 0
 --- !u!82 &727178675
 AudioSource:
   m_ObjectHideFlags: 0
