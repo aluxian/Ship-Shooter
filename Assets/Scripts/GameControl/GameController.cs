@@ -10,6 +10,9 @@ public class GameController : MonoBehaviour
 
     protected bool playing;
     protected bool gamePaused;
+    public bool gameWon;
+
+    public int numEnemies;
 
     public WindController wind;
     
@@ -17,6 +20,8 @@ public class GameController : MonoBehaviour
     void Start()
     {
         playing = true;
+        gamePaused = false;
+        gameWon = false;
     }
     
     // Update is called once per frame
@@ -28,22 +33,26 @@ public class GameController : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
-            
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.J) && !gamePaused)
+            if (Input.GetKeyDown(KeyCode.P) && !gamePaused)
             {
                 pauseGame();
                 gamePaused = true;
             }
-            else if (Input.GetKeyDown(KeyCode.J) && gamePaused)
+            else if (Input.GetKeyDown(KeyCode.P) && gamePaused)
             {
                 resumeGame();
                 gamePaused = false;
             }
+
+            if(numEnemies <= 0)
+            {
+                gameWon = true;
+                playing = false;
+            }
         }
-        
     }
 
     

@@ -16,14 +16,17 @@ public class EnemyHealth : MonoBehaviour
     bool isDead;
     bool damaged;
     public GameObject explosion;
-
-    public AudioClip deathClip;
+    public AudioClip painSound;
     //
     // Components
     //
     //AudioSource playerAudio;
-    EnemyMovement movement;
+    EnemyMovement enemyMovement;
+    EnemyAttack enemyAttack;
     Collider collider;
+    AudioSource au;
+    Death enemyDeath;
+    GameController gameController;
     //PlayerShooting playerShooting;
 
 
@@ -31,9 +34,23 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         //playerAudio = GetComponent<AudioSource>();
-        movement = GetComponent<EnemyMovement>();
+        enemyMovement = GetComponent<EnemyMovement>();
+        enemyAttack = GetComponent<EnemyAttack>();
         collider = GetComponent<Collider>();
+        au = GetComponent<AudioSource>();
+        enemyDeath = GetComponent<Death>();
+        gameController = GameObject.FindObjectOfType<GameController>();
         //playerShooting = GetComponentInChildren <PlayerShooting> ();
+        enemyDeath.enabled = false;
+    }
+
+    protected void Update()
+    {
+        if (damaged)
+        {
+            au.PlayOneShot(painSound);
+        }
+        damaged = false;
     }
 
 
@@ -56,10 +73,13 @@ public class EnemyHealth : MonoBehaviour
         isDead = true;
 
 
-        Destroy(gameObject);
-        
-        Instantiate(explosion, transform.position, transform.rotation);
+        //Destroy(gameObject);
+        enemyMovement.enabled = false;
+        enemyAttack.enabled = false;
+        enemyDeath.enabled = true;
 
+        Instantiate(explosion, transform.position, transform.rotation);
+        gameController.numEnemies -= 1;
     }
 
     void OnTriggerEnter(Collider other)
@@ -75,6 +95,5 @@ public class EnemyHealth : MonoBehaviour
             Instantiate(explosion, other.transform.position, other.transform.rotation);
             Destroy(other.gameObject);
         }
-
     }
 }

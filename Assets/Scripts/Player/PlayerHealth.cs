@@ -27,12 +27,15 @@ public class PlayerHealth : MonoBehaviour
     // World
     //
     public Slider healthSlider;
+    public GameController gameController;
 
     //
     // Components
     //
     //AudioSource playerAudio;
     PlayerMovement playerMovement;
+    PlayerAttack playerAttack;
+    Death playerDeath;
     //PlayerShooting playerShooting;
     
 
@@ -41,6 +44,9 @@ public class PlayerHealth : MonoBehaviour
     {
         //playerAudio = GetComponent<AudioSource>();
         playerMovement = GetComponent<PlayerMovement>();
+        playerAttack = GetComponent<PlayerAttack>();
+        playerDeath = GetComponent<Death>();
+        gameController = GameObject.FindObjectOfType<GameController>();
         //playerShooting = GetComponentInChildren <PlayerShooting> ();
         healthSlider.value = currentHealth;
     }
@@ -82,12 +88,11 @@ public class PlayerHealth : MonoBehaviour
     void Death()
     {
         isDead = true;
-
-        //playerShooting.DisableEffects ();
-
-
         playerMovement.enabled = false;
-        //playerShooting.enabled = false;
+        playerAttack.enabled = false;
+        playerDeath.enabled = true;
+        gameController.endGame();
+
     }
 
 
