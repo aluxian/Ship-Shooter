@@ -24,4 +24,9 @@ public class MenuEventListener : MonoBehaviour
     {
         SceneManager.LoadScene("Level 0");
     }
+
+    public void onQuitClicked()
+    {
+        Application.Quit();
+    }
 }

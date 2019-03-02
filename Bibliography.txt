@@ -37,7 +37,7 @@ music library: https://freesound.org/people/LittleRobotSoundFactory/packs/18000/
 swoosh projectile sound: https://freesound.org/people/Shinplaster/sounds/264777/
 Button Click sounds:
  	UI SFX: https://assetstore.unity.com/packages/audio/sound-fx/ui-sfx-36989
-Menu buttons / dialog windows: https://assetstore.unity.com/packages/2d/gui/fantasy-wooden-gui-free-103811
+Menu buttons / dialog windows and SangSang font: https://assetstore.unity.com/packages/2d/gui/fantasy-wooden-gui-free-103811
 Low poly particles: https://assetstore.unity.com/packages/vfx/particles/polygonal-s-low-poly-particle-pack-118355
 Skybox: https://assetstore.unity.com/packages/vfx/shaders/free-skybox-cubemap-extended-107400
 Ding1:
