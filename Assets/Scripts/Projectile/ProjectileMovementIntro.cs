@@ -25,8 +25,9 @@ public class ProjectileMovementIntro : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.MovePosition(rb.position + speed);
-        rb.transform.localScale = initialScale * ((initialZDist - (target.z - rb.position.z)) / initialZDist);
+        float approachModifier = (initialZDist - (target.z - rb.position.z)) / initialZDist;
+        rb.MovePosition(rb.position + speed * (approachModifier * 3 + 1));
+        rb.transform.localScale = initialScale * approachModifier;
 
         if (rb.position.z > 900)
         {

@@ -19,13 +19,13 @@ public class PlayerAttackIntro : MonoBehaviour
     // Components
     //
     protected Rigidbody rb;
-    protected AudioSource auShot;
+    protected AudioSource[] auShots;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        auShot = gameObject.GetComponent<AudioSource>();
+        auShots = gameObject.GetComponents<AudioSource>();
     }
 
     // Update is called once per frame
@@ -42,7 +42,10 @@ public class PlayerAttackIntro : MonoBehaviour
             for (int x = 0; x < shotSpawnsPort.Length; x++)
             {
                 Instantiate(shot, shotSpawnsPort[x].position, shotSpawnsPort[x].rotation);
-                auShot.Play();
+                foreach (AudioSource auShot in auShots)
+                {
+                    auShot.Play();
+                }
             }
         }
     }
