@@ -16,7 +16,6 @@ public class PlayerMovementIntro : MonoBehaviour
     protected Rigidbody rb;
     protected Vector3 startingRotation;
     protected float randPerlinY;
-    protected bool hasFired;
 
     // Start is called before the first frame update
     void Start()
@@ -34,17 +33,10 @@ public class PlayerMovementIntro : MonoBehaviour
         rb.MoveRotation(rb.rotation * Quaternion.Euler(new Vector3(x, 0, z) * Time.deltaTime));
         rb.MovePosition(rb.position + new Vector3(shipSpeed, bobbing.x * Mathf.Sin(Time.time - Mathf.PI) * yTranslationModifier, 0));
 
-        // fire
-        if (!hasFired && rb.position.x > 0)
-        {
-            hasFired = true;
-        }
-
         // loop
         if (rb.position.x > 350)
         {
             rb.MovePosition(new Vector3(-350, rb.position.y, rb.position.z));
-            hasFired = false; // reset
         }
     }
 }
