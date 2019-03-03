@@ -515,13 +515,12 @@ MonoBehaviour:
   tiltModifier: 0.8
   tiltResetModifier: 0.5
   tiltMax: 15
-  sailModifier: {x: 0.1, y: 0.1}
+  sailModifier: {x: 0.0003, y: 0.0003}
   sailPosition: 0
   sailMin: 0
-  sailMax: 5
+  sailMax: 0.015
   sailsPositionHudSlider: {fileID: 0}
   gameController: {fileID: 0}
-  wind: {fileID: 0}
 --- !u!114 &1722448635178990792
 MonoBehaviour:
   m_ObjectHideFlags: 0

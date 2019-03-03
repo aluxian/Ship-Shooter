@@ -50,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
     // Foreign Components
     public GameController gameController;
 
-    public WindController wind;
 
 
     // Own Components
@@ -103,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
         // 
 
         shipSpeed -= shipSpeed * dragCoefficient;
-        shipSpeed += Mathf.Abs(thrustModifier * sailPosition * wind.windPower / wind.windMax);
+        shipSpeed += Mathf.Abs(thrustModifier * sailPosition);
 
         if (shipSpeed < 0)
         {
