@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18203425, g: 0.22432545, b: 0.2876651, a: 1}
+  m_IndirectSpecularColor: {r: 0.18203431, g: 0.22432563, b: 0.28766528, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -334,7 +334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
-  explosion: {fileID: 100004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
+  explosion: {fileID: 1685874166552172, guid: 2dc5347a44240ea4597cafb2d1d7c160, type: 3}
   painSound: {fileID: 8300000, guid: 17dc623f0ba82984c881a4643a97e99a, type: 3}
 --- !u!54 &466014919
 Rigidbody:
@@ -7445,6 +7445,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mesh
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7f1caad1d15eda94db80ce61b2cf95a9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.72
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7f1caad1d15eda94db80ce61b2cf95a9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 33.3
@@ -7488,10 +7492,6 @@ PrefabInstance:
     - target: {fileID: 400002, guid: 7f1caad1d15eda94db80ce61b2cf95a9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7f1caad1d15eda94db80ce61b2cf95a9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.72
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f1caad1d15eda94db80ce61b2cf95a9, type: 3}
