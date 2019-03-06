@@ -63,26 +63,13 @@ public class Level0 : GameController
         {
             stage += 1;
 
+            au.clip = shiverSound;
+            au.Play();
+
             infoMessageController.AnimateShow("Arr naw. What was that sound?");
             shouldHideTooltipAt = Time.time + 5;
             showShootTooltipAt = Time.time + 8;
         }
-
-        if (stage == 0 && stage1Count == 1 && !treasureSoundPlayed)
-        {
-            au.clip = treasureSound;
-            au.Play();
-            treasureSoundPlayed = true;
-            //stage = 2;
-        }
-
-        if (stage == 1 && stage2Count == 1 && !shiverSoundPlayed)
-        {
-            au.clip = shiverSound;
-            au.Play();
-            shiverSoundPlayed = true;
-        }
-
 
         if (stage == 0 && !stageSetUp[0])
         {
