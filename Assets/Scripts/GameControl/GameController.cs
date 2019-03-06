@@ -68,6 +68,7 @@ public class GameController : MonoBehaviour
         timer = 0;
         spawnState = new bool[spawnDelays.Length];
         wind = FindObjectOfType<WindController>();
+        Time.timeScale = 1;
     }
     
     // Update is called once per frame
