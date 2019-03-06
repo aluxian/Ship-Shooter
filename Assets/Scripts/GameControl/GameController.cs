@@ -36,7 +36,7 @@ public class GameController : MonoBehaviour
     //
     // Components
     //
-    private AudioSource au;
+    protected AudioSource au;
     
     //
     // World
@@ -139,7 +139,7 @@ public class GameController : MonoBehaviour
 
     public void endGame()
     {
-        playing = false;
+        //playing = false;
     }
 
     public void pauseGame()
@@ -153,5 +153,15 @@ public class GameController : MonoBehaviour
         Time.timeScale = 1;
         gamePaused = false;
         nextFire = Time.time + 0.1f;
+    }
+
+    public virtual void IntroStoryDismissed()
+    {
+
+    }
+
+    public virtual void respawn()
+    {
+        //Instantiate(spawnEnemies[spawnRefs[x]], spawnLocations[x].transform.position, spawnLocations[x].transform.rotation);
     }
 }

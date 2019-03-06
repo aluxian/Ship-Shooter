@@ -40,6 +40,11 @@ public class StoryPromptController : MonoBehaviour
         if (currentStory != Story.None && Input.GetMouseButtonDown(0))
         {
             desiredStory = Story.None;
+
+            if (currentStory == Story.IntroBackStory)
+            {
+                gameController.IntroStoryDismissed();
+            }
         }
     }
 

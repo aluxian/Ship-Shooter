@@ -29,27 +29,32 @@ public class Death : MonoBehaviour
     void FixedUpdate()
     {
         timer += Time.deltaTime;
-        for(int x  = 0; x < delays.Length; x++)
+        for (int x = 0; x < delays.Length; x++)
         {
-            if(timer >= delays[x] && !played[x])
+            if (timer >= delays[x] && !played[x])
             {
                 played[x] = true;
                 au.PlayOneShot(clips[x]);
             }
         }
-        if(sinking && rb.position.y >= -depth)
+        if (sinking && rb.position.y >= -depth)
         {
-            rb.position += new Vector3(0,-sinkSpeed,0);
-            if(rb.position.y <= -depth)
+            rb.position += new Vector3(0, -sinkSpeed, 0);
+            if (rb.position.y <= -depth)
             {
                 rb.position = new Vector3(rb.position.x, -depth, rb.position.z);
                 sinking = false;
             }
         }
 
-        if(timer >= destructionDelay)
+        if (timer >= destructionDelay)
         {
             Destroy(this.gameObject);
         }
+    }
+
+    public void reset()
+    {
+        Start();
     }
 }

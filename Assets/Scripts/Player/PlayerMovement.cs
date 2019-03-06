@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Camera mainCamera;
+
+    private Collider myCollider;
 
     //
     // Physics
@@ -55,21 +58,44 @@ public class PlayerMovement : MonoBehaviour
     // Own Components
     private Transform meshHolder; // needed to get rotation to work correctly
     private Rigidbody rb;
-    
+
+
+
+    private Vector3 initialPosition;
+    private Quaternion initialRotation;
+
+
+    private float freezeInputsUntil;
    
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         meshHolder = this.gameObject.transform.Find("MeshHolder").transform;
+        myCollider = gameObject.GetComponent<Collider>();
+        initialPosition = rb.position;
+        initialRotation = rb.rotation;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!VisibleInCamera())
+        {
+            freezeInputsUntil = Time.time + 0.5f;
+            float desiredY = CoordinateConverter.CartesianToPolar(rb.position).y + 180;
+            rb.rotation = Quaternion.Euler(rb.rotation.x, desiredY, rb.rotation.z);
+        }
+
         // Get the inputs
         float userRudder = Input.GetAxis("Horizontal");
         float userSails = Input.GetAxis("Vertical");
+
+        if (Time.time < freezeInputsUntil)
+        {
+            userRudder = 0;
+            userSails = 0;
+        } 
 
         //
         // Sail movement
@@ -147,12 +173,33 @@ public class PlayerMovement : MonoBehaviour
             meshHolder.rotation = Quaternion.Euler(new Vector3(theRotation.x, theRotation.y, -tiltMax));
         }
 
+        if (Time.time < freezeInputsUntil)
+        {
+            shipSpeed = maxSpeed;
+        }
 
         // 
         // Movement Application
         //
         rb.MoveRotation(rb.rotation * Quaternion.Euler(new Vector3(0, userRudder * rotationModifier * shipSpeed * Mathf.Clamp(maxSpeed / shipSpeed,0.1f,8), 0)));
         rb.MovePosition(rb.position + new Vector3(shipSpeed * thrustModifier * Mathf.Sin(Mathf.Deg2Rad * rb.rotation.eulerAngles.y), 0, shipSpeed * thrustModifier * Mathf.Cos(Mathf.Deg2Rad * rb.rotation.eulerAngles.y)));
-
     }
+
+    private bool VisibleInCamera()
+    {
+
+        Plane[] planes = GeometryUtility.CalculateFrustumPlanes(mainCamera);
+        if (GeometryUtility.TestPlanesAABB(planes, myCollider.bounds))
+            return true;
+        else
+            return false;
+    }
+
+    public void reset()
+    {
+        rb.position = initialPosition;
+        rb.rotation = initialRotation;
+        Start();
+    }
+
 }

@@ -7,11 +7,11 @@ public class EnactBoundary : MonoBehaviour
     //
     // Parameters
     //
-    protected float xmin = -70;
+    /*protected float xmin = -70;
     protected float xmax = 70;
     protected float zmin = -50;
     protected float zmax = 50;
-    protected float bounce = 10;
+    protected float bounce = 10;*/
     protected Rigidbody rb;
 
     // Start is called before the first frame update
@@ -23,7 +23,7 @@ public class EnactBoundary : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        float x = transform.position.x;
+        /*float x = transform.position.x;
         float z = transform.position.z;
         
         if(x <= xmin)
@@ -67,6 +67,6 @@ public class EnactBoundary : MonoBehaviour
             {
                 rb.position = new Vector3(rb.position.x, rb.position.y, zmax - bounce);
             }
-        }
+        }*/
     }
 }

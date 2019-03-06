@@ -37,8 +37,8 @@ public class PlayerHealth : MonoBehaviour
     PlayerAttack playerAttack;
     Death playerDeath;
     //PlayerShooting playerShooting;
-    
 
+    private float respawnAfter;
 
     void Start()
     {
@@ -63,6 +63,19 @@ public class PlayerHealth : MonoBehaviour
             damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
         }
         damaged = false;
+
+        if (respawnAfter != 0 && Time.time > respawnAfter)
+        {
+            isDead = false;
+            playerMovement.enabled = true;
+            playerMovement.reset();
+            playerAttack.enabled = true;
+            playerDeath.enabled = false;
+            playerDeath.reset();
+            respawnAfter = 0;
+            currentHealth = 100;
+            healthSlider.value = currentHealth;
+        }
     }
 
 
@@ -91,6 +104,7 @@ public class PlayerHealth : MonoBehaviour
         playerMovement.enabled = false;
         playerAttack.enabled = false;
         playerDeath.enabled = true;
-        gameController.endGame();
+        //gameController.respawn();
+        respawnAfter = Time.time + 3;
     }
 }

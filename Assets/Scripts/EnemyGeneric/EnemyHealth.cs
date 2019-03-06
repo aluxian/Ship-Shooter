@@ -96,4 +96,9 @@ public class EnemyHealth : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+
+    public void PlayPainSound()
+    {
+        au.PlayOneShot(painSound);
+    }
 }

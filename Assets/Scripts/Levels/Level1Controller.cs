@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Level1Controller : GameController
 {
-    public int stage;
     // Start is called before the first frame update
     void Start()
     {

@@ -8,7 +8,7 @@ public class Trigger : MonoBehaviour
     protected Death triggerDeath;
     public int id;
     public float timer;
-    protected Rigidbody rb;
+    public Rigidbody rb;
     protected bool rising;
     // Start is called before the first frame update
     void Start()
@@ -43,7 +43,7 @@ public class Trigger : MonoBehaviour
     {
         if (rising)
         {
-            rb.position += new Vector3(0, 0.01f, 0);
+            rb.position += new Vector3(0, 0.02f, 0);
             if(rb.position.y >= 0)
             {
                 rb.position = new Vector3(rb.position.x, 0, rb.position.z);
@@ -61,7 +61,7 @@ public class Trigger : MonoBehaviour
     public void Awake()
     {
         Start();
-        rb.position -= new Vector3(0, 2, 0);
+        //rb.position -= new Vector3(0, 4, 0);
         rising = true;
     }
 

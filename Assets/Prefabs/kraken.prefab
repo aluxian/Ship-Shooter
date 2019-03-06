@@ -6246,6 +6246,8 @@ MonoBehaviour:
   maxSpeed: 0.05
   active: 0
   rotationDelay: 2
+  spawnDepth: -30
+  riseSpeed: 5
   timer: 0
   nextTurn: 0
   depth: 8
@@ -6271,7 +6273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e9df4d88ab7d9248886990c3668f611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 100004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
+  explosion: {fileID: 1968586304485042, guid: 6c86c599d7bf3464eb4506d2584fbe57, type: 3}
   strength: 90
   attackDelay: 2
   attackRadius: 10
@@ -6291,7 +6293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 200
   currentHealth: 200
-  explosion: {fileID: 100004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
+  explosion: {fileID: 1685874166552172, guid: 2dc5347a44240ea4597cafb2d1d7c160, type: 3}
   painSound: {fileID: 8300000, guid: 8ea383542d110584b88d98d620dd0726, type: 3}
 --- !u!114 &7781887567628335992
 MonoBehaviour:

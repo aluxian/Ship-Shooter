@@ -13,8 +13,8 @@ public class EnemyMovement : MonoBehaviour
     public bool active;
     public float rotationDelay;
     private bool rising;
-    protected float spawnDepth;
-    protected float riseSpeed;
+    public float spawnDepth;
+    public float riseSpeed;
 
     //
     // Timing
@@ -39,6 +39,7 @@ public class EnemyMovement : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody>();
         timer = 0;
         nextTurn = 0;
+        rb.position = new Vector3(rb.position.x, -spawnDepth, rb.position.z);
     }
 
     protected void Update()

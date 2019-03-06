@@ -42,4 +42,14 @@ public class PauseGameOnEsc : MonoBehaviour
     {
         SceneManager.LoadScene("IntroMenu");
     }
+
+    public void onNextClicked()
+    {
+        SceneManager.LoadScene("Level 1");
+    }
+
+    public void onLevelSelectClicked()
+    {
+        SceneManager.LoadScene("LevelSelect");
+    }
 }

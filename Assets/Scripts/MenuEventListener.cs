@@ -17,11 +17,26 @@ public class MenuEventListener : MonoBehaviour
 
     public void onStartClicked()
     {
-        SceneManager.LoadScene("Level 0");
+        SceneManager.LoadScene("LevelSelect");
     }
 
     public void onQuitClicked()
     {
         Application.Quit();
+    }
+
+    public void onTutClicked()
+    {
+        SceneManager.LoadScene("Level 0");
+    }
+
+    public void onLev1Clicked()
+    {
+        SceneManager.LoadScene("Level 1");
+    }
+
+    public void onMenuClicked()
+    {
+        SceneManager.LoadScene("IntroMenu");
     }
 }

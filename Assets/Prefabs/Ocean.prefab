@@ -93,7 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveHeight: 0.2
   waveFrequency: 0.5
-  waveLength: 0.05
+  waveLength: 0.03
   waveOriginPosition: {x: 0, y: 0, z: 0}
 --- !u!82 &7419923519374057283
 AudioSource:
@@ -107,7 +107,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a07058a4f35c2884d8a1311157d1ca23, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.245
   m_Pitch: 1
   Loop: 1
   Mute: 0

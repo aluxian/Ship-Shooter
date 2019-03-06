@@ -61,3 +61,7 @@ island5:
 low poly water:
 	Source: https://assetstore.unity.com/packages/tools/particles-effects/lowpoly-water-107563\
 	Author: Ebru Dogan - http://ebrudogan.github.io/
+
+snapping wood: https://freesound.org/people/InspectorJ/sounds/352179/
+https://freesound.org/people/qalba4j/sounds/401931/
+https://freesound.org/people/wayneoutthere/sounds/353135/
