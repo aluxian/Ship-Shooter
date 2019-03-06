@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    public float nextFire; // hack
 
     //
     // Parameters
@@ -17,8 +18,8 @@ public class GameController : MonoBehaviour
     //
     // Game State
     //
-    protected bool playing;
-    protected bool gamePaused;
+    public bool playing;
+    public bool gamePaused;
     public bool gameWon;
 
     protected float timer;
@@ -86,12 +87,10 @@ public class GameController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.P) && !gamePaused)
             {
                 pauseGame();
-                gamePaused = true;
             }
             else if (Input.GetKeyDown(KeyCode.P) && gamePaused)
             {
                 resumeGame();
-                gamePaused = false;
             }
 
             if(numEnemies <= 0)
@@ -146,10 +145,13 @@ public class GameController : MonoBehaviour
     public void pauseGame()
     {
         Time.timeScale = 0;
+        gamePaused = true;
     }
 
     public void resumeGame()
     {
         Time.timeScale = 1;
+        gamePaused = false;
+        nextFire = Time.time + 0.1f;
     }
 }

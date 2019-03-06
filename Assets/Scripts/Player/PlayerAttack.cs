@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    public GameController gameController;
+
     //
     // Shots
     //
@@ -33,7 +35,7 @@ public class PlayerAttack : MonoBehaviour
     //  && Time.timeScale > 0 is needed because otherwise the player can still fire while the game is paused
     void Update()
     {
-        if (Input.GetButton("Fire1") && Time.time > nextFirePort && Time.timeScale > 0)
+        if (!gameController.gamePaused && Input.GetButton("Fire1") && Time.time > nextFirePort && Time.time > gameController.nextFire && Time.timeScale > 0)
         {
             nextFirePort = Time.time + reloadTime;
             for (int x = 0; x < shotSpawnsPort.Length; x++)
@@ -43,7 +45,7 @@ public class PlayerAttack : MonoBehaviour
             }
         }
 
-        if (Input.GetButton("Fire2") && Time.time > nextFireStarboard && Time.timeScale > 0)
+        if (!gameController.gamePaused && Input.GetButton("Fire2") && Time.time > nextFireStarboard && Time.time > gameController.nextFire && Time.timeScale > 0)
         {
             nextFireStarboard = Time.time + reloadTime;
             for (int x = 0; x < shotSpawnsPort.Length; x++)
