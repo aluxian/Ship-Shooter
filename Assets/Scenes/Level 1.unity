@@ -311,6 +311,11 @@ PrefabInstance:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 957109959}
+    - target: {fileID: 1722448635178990793, guid: 58df6e8a710875a4eb14aabcc18803b7,
+        type: 3}
+      propertyPath: normalLevel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1722448635178990792, guid: 58df6e8a710875a4eb14aabcc18803b7,
         type: 3}
       propertyPath: gameController
@@ -1563,7 +1568,12 @@ PrefabInstance:
     - target: {fileID: 7998978112991283393, guid: 034ba8f99efaa4b4bbdcf5accdeff892,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -5.4023438
+      value: -5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7998978112991283393, guid: 034ba8f99efaa4b4bbdcf5accdeff892,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 99.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 034ba8f99efaa4b4bbdcf5accdeff892, type: 3}
