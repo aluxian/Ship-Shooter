@@ -155,6 +155,12 @@ public class GameController : MonoBehaviour
         nextFire = Time.time + 0.1f;
     }
 
+    public void reset()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+
     public virtual void IntroStoryDismissed()
     {
 

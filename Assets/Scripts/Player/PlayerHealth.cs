@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
+
+    //
+    // Spawning
+    //
+    public bool normalLevel;
+
     //
     // Health
     //
@@ -66,15 +72,22 @@ public class PlayerHealth : MonoBehaviour
 
         if (respawnAfter != 0 && Time.time > respawnAfter)
         {
-            isDead = false;
-            playerMovement.enabled = true;
-            playerMovement.reset();
-            playerAttack.enabled = true;
-            playerDeath.enabled = false;
-            playerDeath.reset();
-            respawnAfter = 0;
-            currentHealth = 100;
-            healthSlider.value = currentHealth;
+            if (!normalLevel)
+            {
+                isDead = false;
+                playerMovement.enabled = true;
+                playerMovement.reset();
+                playerAttack.enabled = true;
+                playerDeath.enabled = false;
+                playerDeath.reset();
+                respawnAfter = 0;
+                currentHealth = 100;
+                healthSlider.value = currentHealth;
+            }
+            else
+            {
+                gameController.reset();
+            }
         }
     }
 
