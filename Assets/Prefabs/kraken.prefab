@@ -6293,7 +6293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 200
   currentHealth: 200
-  explosion: {fileID: 1685874166552172, guid: 2dc5347a44240ea4597cafb2d1d7c160, type: 3}
+  explosion: {fileID: 1494083766182838, guid: 151b49b11ab5924429acc76ead6435fa, type: 3}
   painSound: {fileID: 8300000, guid: 8ea383542d110584b88d98d620dd0726, type: 3}
 --- !u!114 &7781887567628335992
 MonoBehaviour:
@@ -6320,13 +6320,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   depth: 20
-  sinkSpeed: 5
+  sinkSpeed: 0.05
   clips:
-  - {fileID: 8300000, guid: 8ea383542d110584b88d98d620dd0726, type: 3}
+  - {fileID: 8300000, guid: 78c7f90744357b94e8a5b07d8cec5e76, type: 3}
+  - {fileID: 8300000, guid: 49633201f9c137a46a22d01b399b938f, type: 3}
   delays:
   - 0
   timer: 0
-  destructionDelay: 3
+  destructionDelay: 5
 --- !u!82 &7781887567628335996
 AudioSource:
   m_ObjectHideFlags: 0

@@ -56,14 +56,14 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        damaged = true;
-
         currentHealth -= amount;
-
-
+        
         if (currentHealth <= 0 && !isDead)
         {
             Death();
+        } else
+        {
+            damaged = true;
         }
     }
 

@@ -51,10 +51,19 @@ public class Level0 : GameController
         infoMessageController.Hide();
     }
 
+    private bool krak;
+
     // Update is called once per frame
     void Update()
     {
         base.Update();
+
+        /*if (stage1Count == 1 && !krak)
+        {
+            krak = true;
+            stage = 2;
+        }*/
+
         if(stage1Count >= stage1Target && stage == 0)
         {
             stage += 1;
@@ -111,7 +120,7 @@ public class Level0 : GameController
         if (stage == 2 && numEnemies == 0 && endLevelAt == 0)
         {
             print("kraken died");
-            endLevelAt = Time.time + 1;
+            endLevelAt = Time.time + 8;
         }
 
         if (shouldHideTooltipAt != 0 && shouldHideTooltipAt < Time.time)
@@ -132,6 +141,7 @@ public class Level0 : GameController
         if (endLevelAt != 0 && endLevelAt < Time.time && !levelEndHUD.activeSelf)
         {
             levelEndHUD.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 

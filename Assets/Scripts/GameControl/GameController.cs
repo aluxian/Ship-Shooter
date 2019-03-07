@@ -160,6 +160,11 @@ public class GameController : MonoBehaviour
 
     }
 
+    public virtual void EndStoryDismissed()
+    {
+
+    }
+
     public virtual void respawn()
     {
         //Instantiate(spawnEnemies[spawnRefs[x]], spawnLocations[x].transform.position, spawnLocations[x].transform.rotation);
