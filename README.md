@@ -2,7 +2,7 @@
 An Asteroids-like shooter on the high seas!
 
 ## About
-Ship-Shooter changes the fundamental movement and attacks of your ship, and takes you down from the stratosphere back down to the seas, though certainly not to the mundane, with monsters, obstacles and even pirates determined to see you sunk.
+Ship-Shooter changes the fundamental movement and attacks of your ship, and takes you down from the stratosphere back down to the seas, though certainly not to the mundane, with various monsters determined to see you sunk.
 
 ## Note
-This may be slightly based on the Space Shooter Unity tutorial, and assets are gradually being replaced with our own original ones.
+This is a prototype created over three weeks and as such doesn't have quite as much content as we would like.
